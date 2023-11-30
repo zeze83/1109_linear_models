@@ -162,3 +162,13 @@ cv_results |>
 
 ```
 
+```{r}
+cv_df = 
+  nonlin_df |> 
+  crossv_mc(n = 100) |> 
+  mutate(
+    train = map(train, as_tibble),
+    test = map(test, as_tibble)
+  )
+```
+
